@@ -8,6 +8,7 @@ public class JogoDaVelhaPOO {
     private static int posicao;
     private static boolean doisJogadores = false;
     private static boolean vitoria = false;
+    private static boolean vitoriaP2 = false;
 
     public static void JogoDaVelha() {
         System.out.println("Escolha a modalidade");
@@ -46,6 +47,7 @@ public class JogoDaVelhaPOO {
             }
             System.out.println();
         }
+        System.out.println("----------");
     }
     
     public static void DecisãoDoJogador() {
@@ -55,12 +57,11 @@ public class JogoDaVelhaPOO {
         if (tabuleiro[0][0] != "o") {
             if (posicao == 1) {
                 tabuleiro[0][0] = "x";
-           }
-            if (tabuleiro[0][0].equalsIgnoreCase("o")) {
+           }else if (tabuleiro[0][0].equalsIgnoreCase("o")) {
                 System.out.println("Não pode jogar ai !");
                 input.next();
-            }
         }
+            }
         
         if (tabuleiro[1][0] != "o") {
             if (posicao == 2 ) {
@@ -104,17 +105,18 @@ public class JogoDaVelhaPOO {
             }else if (tabuleiro[2][1] == "o"){
                 System.out.println("Não pode jogar ai !");
                 input.next();
-            }
-        } 
+            } 
+        }
         
         if (tabuleiro[0][2] != "o") {
             if (posicao == 7 ) {
                 tabuleiro[0][2] = "x";
             }else if (tabuleiro[0][2] == "o"){
-                System.out.println("Não pode jogar ai !");
-                input.next();
+                    System.out.println("Não pode jogar ai !");
+                    input.next();
             }
-        }
+                }
+        
         
         if (tabuleiro[1][2] != "o") {
             if (posicao == 8 ) {
@@ -125,13 +127,14 @@ public class JogoDaVelhaPOO {
             }
         }
         
+        
         if (tabuleiro[2][2] != "o") {
             if ((posicao == 9)) {
                 tabuleiro[2][2] = "x";
-            }
-        }else if (tabuleiro[2][2] == "o"){
+            }else if (tabuleiro[2][2] == "o"){
             System.out.println("Não pode jogar ai !");
             input.next();
+        }
         }
         
     }
@@ -143,55 +146,73 @@ public class JogoDaVelhaPOO {
             if (valorAleatorio == 0) {
                 if (tabuleiro[0][0] != "x" && tabuleiro[0][0] != "o") {
                     tabuleiro[0][0] = "o";
+                }else {
+                    JogadaDaMaquina();
                 }
             }
                 
             if (valorAleatorio == 1) {
                 if (tabuleiro[1][0] != "x" && tabuleiro[1][0] != "o") {
                     tabuleiro[1][0] = "o";
+                }else {
+                    JogadaDaMaquina();
                 }        
             }
             
             if (valorAleatorio == 2) {
                 if (tabuleiro[2][0] != "x" && tabuleiro[2][0] != "o") {
                     tabuleiro[2][0] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
             if (valorAleatorio == 3) {
                 if (tabuleiro[0][1] != "x" && tabuleiro[0][1] != "o") {
                     tabuleiro[0][1] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
             if (valorAleatorio == 4) {
                 if (tabuleiro[1][1] != "x" && tabuleiro[1][1] != "o") {
                     tabuleiro[1][1] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
             if (valorAleatorio == 5) {
                 if (tabuleiro[2][1] != "x" && tabuleiro[2][1] != "o") {
                     tabuleiro[2][1] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
             if (valorAleatorio == 6) {
                 if (tabuleiro[0][2] != "x" && tabuleiro[0][2] != "o") {
                     tabuleiro[0][2] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
             if (valorAleatorio == 7) {
                 if (tabuleiro[1][2] != "x" && tabuleiro[1][2] != "o") {
                     tabuleiro[1][2] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
             if (valorAleatorio == 8) {
                 if (tabuleiro[2][2] != "x" && tabuleiro[2][2] != "o") {
                     tabuleiro[2][2] = "o";
-                }
+                }else {
+                    JogadaDaMaquina();
+                }   
             }
             
                 System.out.println("Maquina jogando...");
@@ -203,35 +224,55 @@ public class JogoDaVelhaPOO {
         if (tabuleiro[0][0].equals("x") && tabuleiro[1][0].equals("x") && tabuleiro[2][0].equals("x")) {
             System.out.println("Jogador 1 Vencedor!"); 
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[0][1].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[2][1].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[0][2].equals("x") && tabuleiro[1][2].equals("x") && tabuleiro[2][2].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[0][0].equals("x") && tabuleiro[0][1].equals("x") && tabuleiro[0][2].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[1][0].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[1][2].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[2][0].equals("x") && tabuleiro[2][1].equals("x") && tabuleiro[2][2].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[0][0].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[2][2].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
         }else if (tabuleiro[0][2].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[2][0].equals("x")) {
             System.out.println("Jogador 1 Vencedor");
             vitoria = true;
-            MontagemDoTabuleiro();
+        }
+    }
+    
+    public static void CondicaoDeVitoriaP2() {
+        if (tabuleiro[0][0].equals("o") && tabuleiro[1][0].equals("o") && tabuleiro[2][0].equals("x")) {
+            System.out.println("Jogador 2 Vencedor!"); 
+            vitoriaP2 = true;
+        }else if (tabuleiro[0][1].equals("o") && tabuleiro[1][1].equals("o") && tabuleiro[2][1].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
+        }else if (tabuleiro[0][2].equals("o") && tabuleiro[1][2].equals("o") && tabuleiro[2][2].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
+        }else if (tabuleiro[0][0].equals("o") && tabuleiro[0][1].equals("o") && tabuleiro[0][2].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
+        }else if (tabuleiro[1][0].equals("o") && tabuleiro[1][1].equals("o") && tabuleiro[1][2].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
+        }else if (tabuleiro[2][0].equals("o") && tabuleiro[2][1].equals("o") && tabuleiro[2][2].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
+        }else if (tabuleiro[0][0].equals("o") && tabuleiro[1][1].equals("o") && tabuleiro[2][2].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
+        }else if (tabuleiro[0][2].equals("o") && tabuleiro[1][1].equals("o") && tabuleiro[2][0].equals("x")) {
+            System.out.println("Jogador 2 Vencedor");
+            vitoriaP2 = true;
         }
     }
     
@@ -240,14 +281,23 @@ public class JogoDaVelhaPOO {
         int cont = 0;
         JogoDaVelha();
         while (cont <= 5) {
+        CondicaoDeVitoria();
+        CondicaoDeVitoriaP2();
+        if (vitoria == true && vitoriaP2 == false) {
+            MontagemDoTabuleiro();
+            break;
+        }
+        if (vitoriaP2 == true && vitoria == false) {
+            MontagemDoTabuleiro();
+            break;
+        }
         MontagemDoTabuleiro();
         DecisãoDoJogador();
         JogadaDaMaquina();
-        CondicaoDeVitoria();
-        if (vitoria == true) {
-            break;
-        }
         cont++;
+        }
+        if (vitoriaP2 && vitoria == false) {
+            System.out.println("Deu velha");
         }
     }
 }
