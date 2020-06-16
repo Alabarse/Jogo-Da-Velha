@@ -7,6 +7,7 @@ public class JogoDaVelhaPOO {
     private static String tabuleiro[][] = new String[3][3];
     private static int posicao;
     private static boolean doisJogadores = false;
+    private static boolean vitoria = false;
 
     public static void JogoDaVelha() {
         System.out.println("Escolha a modalidade");
@@ -51,88 +52,187 @@ public class JogoDaVelhaPOO {
     Scanner input = new Scanner(System.in);
         System.out.println("Vez do jogador.");
         posicao = input.nextInt();
-        if (posicao == 1) {
-            tabuleiro[0][0] = "x";
-        }
-        if (posicao == 2 ) {
-            tabuleiro[1][0] = "x";
+        if (tabuleiro[0][0] != "o") {
+            if (posicao == 1) {
+                tabuleiro[0][0] = "x";
+           }
+            if (tabuleiro[0][0].equalsIgnoreCase("o")) {
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
         
-        if (posicao == 3) {
-            tabuleiro[2][0] = "x";
+        if (tabuleiro[1][0] != "o") {
+            if (posicao == 2 ) {
+                tabuleiro[1][0] = "x";
+            }else if (tabuleiro[1][0] == "o"){
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
-        if (posicao == 4) {
-            tabuleiro[0][1] = "x";
+        
+        if (tabuleiro[2][0] != "o") {
+            if (posicao == 3) {
+                tabuleiro[2][0] = "x";
+            }else if (tabuleiro[2][0] == "o"){
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
-        if (posicao == 5 ) {
-            tabuleiro[1][1] = "x";
+        
+        if (tabuleiro[0][1] != "o") {
+            if (posicao == 4) {
+                tabuleiro[0][1] = "x";
+            }else if (tabuleiro[0][1] == "o") {
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
-        if (posicao == 6 ) {
-            tabuleiro[2][1] = "x";
+        
+        if (tabuleiro[1][1] != "o") {
+            if (posicao == 5 ) {
+                tabuleiro[1][1] = "x";
+            }else if (tabuleiro[1][1] == "o"){
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
-        if (posicao == 7 ) {
-            tabuleiro[0][2] = "x";
+        
+        if (tabuleiro[2][1] != "o") {
+            if (posicao == 6 ) {
+                tabuleiro[2][1] = "x";
+            }else if (tabuleiro[2][1] == "o"){
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
+        } 
+        
+        if (tabuleiro[0][2] != "o") {
+            if (posicao == 7 ) {
+                tabuleiro[0][2] = "x";
+            }else if (tabuleiro[0][2] == "o"){
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
-        if (posicao == 8 ) {
-            tabuleiro[1][2] = "x";
+        
+        if (tabuleiro[1][2] != "o") {
+            if (posicao == 8 ) {
+                tabuleiro[1][2] = "x";
+            }else if (tabuleiro[1][2] == "o"){
+                System.out.println("Não pode jogar ai !");
+                input.next();
+            }
         }
+        
+        if (tabuleiro[2][2] != "o") {
             if ((posicao == 9)) {
-            tabuleiro[2][2] = "x";
+                tabuleiro[2][2] = "x";
+            }
+        }else if (tabuleiro[2][2] == "o"){
+            System.out.println("Não pode jogar ai !");
+            input.next();
         }
+        
     }
     
     public static void JogadaDaMaquina() {
         Random random = new Random();
-        int valorAleatorio = random.nextInt(2) + 0;
+        int valorAleatorio = random.nextInt(9) + 0;
         if (doisJogadores == false) {
-            if (tabuleiro[0][0] != "x" || tabuleiro[0][0] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
+            if (valorAleatorio == 0) {
+                if (tabuleiro[0][0] != "x" && tabuleiro[0][0] != "o") {
+                    tabuleiro[0][0] = "o";
+                }
+            }
                 
-            } 
-            if (tabuleiro[0][1] != "x" || tabuleiro[0][1] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-                
+            if (valorAleatorio == 1) {
+                if (tabuleiro[1][0] != "x" && tabuleiro[1][0] != "o") {
+                    tabuleiro[1][0] = "o";
+                }        
             }
-            if (tabuleiro[0][2] != "x" || tabuleiro[0][2] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-               
-            } 
-            if (tabuleiro[1][0] != "x" || tabuleiro[1][0] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-               
+            
+            if (valorAleatorio == 2) {
+                if (tabuleiro[2][0] != "x" && tabuleiro[2][0] != "o") {
+                    tabuleiro[2][0] = "o";
+                }
             }
-            if (tabuleiro[1][1] != "x" || tabuleiro[1][1] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-             
+            
+            if (valorAleatorio == 3) {
+                if (tabuleiro[0][1] != "x" && tabuleiro[0][1] != "o") {
+                    tabuleiro[0][1] = "o";
+                }
             }
-            if (tabuleiro[1][2] != "x" || tabuleiro[1][2] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-               
+            
+            if (valorAleatorio == 4) {
+                if (tabuleiro[1][1] != "x" && tabuleiro[1][1] != "o") {
+                    tabuleiro[1][1] = "o";
+                }
             }
-            if (tabuleiro[2][0] != "x" || tabuleiro[2][0] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-               
-            } 
-            if (tabuleiro[2][1] != "x" || tabuleiro[2][1] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-               
+            
+            if (valorAleatorio == 5) {
+                if (tabuleiro[2][1] != "x" && tabuleiro[2][1] != "o") {
+                    tabuleiro[2][1] = "o";
+                }
             }
-            if (tabuleiro[2][2] != "x" || tabuleiro[2][2] != "X") {
-                tabuleiro[valorAleatorio][valorAleatorio] = "o";
-            }else {
-              
+            
+            if (valorAleatorio == 6) {
+                if (tabuleiro[0][2] != "x" && tabuleiro[0][2] != "o") {
+                    tabuleiro[0][2] = "o";
+                }
+            }
+            
+            if (valorAleatorio == 7) {
+                if (tabuleiro[1][2] != "x" && tabuleiro[1][2] != "o") {
+                    tabuleiro[1][2] = "o";
+                }
+            }
+            
+            if (valorAleatorio == 8) {
+                if (tabuleiro[2][2] != "x" && tabuleiro[2][2] != "o") {
+                    tabuleiro[2][2] = "o";
+                }
+            }
+            
+                System.out.println("Maquina jogando...");
             }
         }
-        System.out.println("Maquina jogando...");
-        
+    
+    
+    public static void CondicaoDeVitoria() {
+        if (tabuleiro[0][0].equals("x") && tabuleiro[1][0].equals("x") && tabuleiro[2][0].equals("x")) {
+            System.out.println("Jogador 1 Vencedor!"); 
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[0][1].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[2][1].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[0][2].equals("x") && tabuleiro[1][2].equals("x") && tabuleiro[2][2].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[0][0].equals("x") && tabuleiro[0][1].equals("x") && tabuleiro[0][2].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[1][0].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[1][2].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[2][0].equals("x") && tabuleiro[2][1].equals("x") && tabuleiro[2][2].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[0][0].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[2][2].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }else if (tabuleiro[0][2].equals("x") && tabuleiro[1][1].equals("x") && tabuleiro[2][0].equals("x")) {
+            System.out.println("Jogador 1 Vencedor");
+            vitoria = true;
+            MontagemDoTabuleiro();
+        }
     }
     
     
@@ -143,6 +243,10 @@ public class JogoDaVelhaPOO {
         MontagemDoTabuleiro();
         DecisãoDoJogador();
         JogadaDaMaquina();
+        CondicaoDeVitoria();
+        if (vitoria == true) {
+            break;
+        }
         cont++;
         }
     }
